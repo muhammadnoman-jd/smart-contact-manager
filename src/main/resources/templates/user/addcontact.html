@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="user/base::layout(~{::section})">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+</head>
+<body>
+	<section class="mt-5 pt-4 mb-3">
+		<div class="card mr-5 card shadow-lg rounded-3 p-4 " style="border-radius: 1rem;">
+			<div class="card-body">
+				<h1 class="text-center">Add Contact</h1>
+				<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert ml-5 mr-5" role="alert">
+					<p class="text-center" th:text="${session.message.message}"></p>
+				
+				</div>
+</div>
+				
+				<div class="container-fluid mt-1">
+				
+				<div class="row">
+				
+				<div class="col-md-8 offset-md-2">
+				
+				<form action="#" 
+					th:object="${contact}" 
+					enctype="multipart/form-data" 
+					method="post" 
+					th:action="@{/user/process-contact}"
+					class="mt-2">
+				
+				<!--NAme  -->	
+	<div class="input-group mt-3">
+      <div class="input-group-prepend">
+      	<div class="input-group-text">
+      			<i class="fa fa-user"></i>
+      	</div>
+      </div>
+      
+      <input required type="text" id="name" name="name" placeholder="Enter Name here" class="form-control" />
+    </div>
+
+   
+  <!-- Nickname -->
+  <div class="input-group mt-3">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><i class="fa fa-id-card" ></i></div>
+    </div>
+    <input type="text" name="nickName" placeholder="Enter Nickname here" class="form-control" />
+  </div>
+
+  <!-- Email -->
+  <div class="input-group mt-3">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><i class="fa fa-envelope"></i></div>
+    </div>
+    <input type="email" name="email" placeholder="Enter Email here" class="form-control"  />
+  </div>
+
+  <!-- Phone -->
+  <div class="input-group mt-3">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><i class="fa fa-phone"></i></div>
+    </div>
+    <input required pattern="^\d{11,}$" title="Phone number must be exactly 11 digits" type="text" name="phone" placeholder="Enter Phone number here" class="form-control" />
+  </div>
+
+  <!-- Work -->
+  <div class="input-group mt-3">
+    <div class="input-group-prepend">
+      <div class="input-group-text"><i class="fa fa-briefcase"></i></div>
+    </div>
+    <input type="text" name="work" placeholder="Enter Work details here" class="form-control" />
+  </div>
+
+  <!-- Description -->
+  <div class="input-group mt-3">
+    
+      
+    <textarea name="description" placeholder="Enter Description here" class="form-control" rows="10"></textarea>
+  </div>
+
+  <!-- Image -->
+ <div class="input-group mt-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">
+      <i class="fa fa-image"></i>
+    </span>
+  </div>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="imageInput" name="imageInput">
+    <label class="custom-file-label" for="imageInput">Choose image</label>
+  </div>
+</div>
+
+
+
+  <!-- Submit -->
+  <div class="mt-4 text-center">
+    <button type="submit" class="btn btn-outline-primary">Save Contact</button>
+  </div>
+    </div>
+				
+				
+				</form>
+				
+					
+				
+				
+				</div>
+				
+				
+				</div>
+				
+				
+				</div>
+			
+			</div>
+		
+		</div>
+	</section>
+	
+	
+</body>
+</html>
+
+

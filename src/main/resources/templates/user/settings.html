@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="user/base::layout(~{::section})">
+<head>
+  <meta charset="UTF-8" />
+  <title>Settings</title>
+</head>
+<body>
+	<section class="mt-5 pt-4 mb-3">
+		<div class="card mr-5 card shadow-lg rounded-3 p-4 " style="border-radius: 1rem;">
+			<div class="card-body">
+				<h1 class="text-center">Change Password</h1>
+				
+				<!-- Success/Error Message -->
+				<div th:if="${message}" class="alert" th:classappend="${message.type}">
+    <span th:text="${message.message}"></span>
+</div>
+
+			</div>
+				
+			<div class="container-fluid mt-1">
+				<div class="row">
+					<div class="col-md-8 offset-md-2">
+					
+						<form action="#" 
+						      method="post" 
+						      th:action="@{/user/change-password}" 
+						      class="mt-2">
+							
+							<!-- Old Password -->
+							<div class="input-group mt-3">
+							  <div class="input-group-prepend">
+							    <div class="input-group-text"><i class="fa fa-lock"></i></div>
+							  </div>
+							  <input required type="password" name="oldPassword" placeholder="Enter Old Password" class="form-control" />
+							</div>
+
+							<!-- New Password -->
+							<div class="input-group mt-3">
+							  <div class="input-group-prepend">
+							    <div class="input-group-text"><i class="fa fa-key"></i></div>
+							  </div>
+							  <input required minlength="6" type="password" name="newPassword" placeholder="Enter New Password" class="form-control" />
+							</div>
+
+							
+
+							<!-- Submit -->
+							<div class="mt-4 text-center">
+							  <button type="submit" class="btn btn-outline-primary">Reset Password</button>
+							</div>
+							
+						</form>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

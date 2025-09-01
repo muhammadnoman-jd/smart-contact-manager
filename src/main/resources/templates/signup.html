@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.themeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>About</title>
+	<!-- Bootstrap CSS CDN or local -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<!-- Your Custom CSS -->
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<section  >
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="my-card mt-5">
+				
+				<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+					<p class="text-center" th:text="${session.message.message}"></p>
+				
+				</div>
+					<h2 class="text-center mb-4">Register Here</h2>
+					<form action="" th:action="@{/do_register}" method="post" th:object="${user}">
+
+	<div class="form-group">
+		<label for="name-field">Name</label>
+		<input name="name" type="text" class="form-control" id="name-field"
+			placeholder="Enter your name"  th:field="*{name}">
+			 <div th:if="${#fields.hasErrors('name')}" class="text-danger small" th:errors="*{name}"></div>
+			 
+      
+	</div>
+
+	<div class="form-group">
+		<label for="email-field">Email</label>
+		<input name="email" type="email" class="form-control" id="email-field"
+			placeholder="Enter your email"  th:field="*{email}">
+			 <div th:if="${#fields.hasErrors('email')}" class="text-danger small" th:errors="*{email}"></div>
+			 
+	</div>
+
+	<div class="form-group">
+		<label for="password-field">Password</label>
+		<input name="password" type="password" class="form-control" id="password-field"
+			placeholder="Enter your password"  th:field="*{password}">
+			 <div th:if="${#fields.hasErrors('password')}" class="text-danger small" th:errors="*{password}"></div>
+			  
+			 
+	</div>
+
+	<div class="form-group">
+		<label for="desc">About You</label>
+		<textarea name="about" id="desc" rows="5" class="form-control"
+			placeholder="Tell us about yourself..." th:field="*{about}"></textarea>
+	</div>
+
+	<!-- terms and conditions -->
+	<div class="form-group form-check">
+		<input type="checkbox" name="agreement" class="form-check-input" id="agreement" />
+		<label for="agreement">Accept terms and conditions</label>
+	</div>
+
+	<div class="text-center">
+		<button type="reset" class="btn btn-warning text-white mr-2">Reset</button>
+		<button type="submit" class="btn bg-primary text-white">Submit</button>
+	</div>
+
+</form>
+<p class="text-center mt-3">
+    Already a user? <a th:href="@{/signin}" class="text-primary font-weight-bold">Login here</a>
+</p>
+
+
+				</div>
+			</div>	
+		</div>
+	</div>
+</section>
+
+</body>
+</html>

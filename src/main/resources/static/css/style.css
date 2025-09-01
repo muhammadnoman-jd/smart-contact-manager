@@ -1,0 +1,259 @@
+body {
+	background: #f4f4f4 !important;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bg-primary {
+	background: #009688 !important;
+}
+
+.banner {
+	width: 100%;
+	height: 93vh;
+	background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../img/homebg.png);
+	background-size: cover;
+	color: white;
+}
+
+.my-card {
+	padding: 30px;
+	background: #ffffff;
+	border-radius: 20px;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease-in-out;
+}
+.my-card, .my-card * {
+	color: #212529 !important;
+}
+
+.my-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.form-control {
+	border-radius: 10px;
+	padding: 10px 15px;
+}
+
+textarea.form-control {
+	resize: none;
+}
+
+.btn {
+	border-radius: 30px;
+	padding: 10px 25px;
+	font-weight: 500;
+}
+
+.btn-warning {
+	background-color: #ff9800;
+	border: none;
+}
+
+.btn-warning:hover {
+	background-color: #e68900;
+}
+
+.btn.bg-primary:hover {
+	background-color: #00796b !important;
+}
+
+.about-section {
+	background-color: #f8f9fa;
+}
+
+.features-section .shadow-sm {
+	transition: transform 0.3s ease-in-out;
+}
+
+.features-section .shadow-sm:hover {
+	transform: translateY(-5px);
+}
+
+/* designing sidebar and content area */
+.sidebar {
+	
+	transition: transform 0.2s ease-in-out;
+	width: 18%;
+	background: white;
+	height: 100%;
+	position: fixed;
+	padding-top: 45px;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+}
+
+.sidebar .close-btn {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	font-size: 24px;
+	cursor: pointer;
+	color: #999;
+	z-index: 1001;
+}
+
+.sidebar a {
+	display: block;
+	width: 100%;
+	padding: 10px 25px;
+	text-decoration: none;
+	color: gray;
+}
+
+.sidebar a:hover {
+	background: #e2e2e2;
+}
+
+.sidebar .divider {
+	height: .5px;
+	width: 100%;
+	background: #e2e2e2;
+	margin-top: 10px;
+}
+
+.sidebar.hidden {
+	transform: translateX(-100%);
+	transition: transform 0.2s ease;
+}
+
+.content {
+	transition: margin-left 0.2s ease-in-out;
+	margin-left: 20%;
+}
+
+/* Main content with and without sidebar */
+#mainContent {
+  transition: margin-left 0.2s ease-in-out;
+}
+
+#mainContent.with-sidebar {
+  margin-left: 20%; /* same as sidebar width */
+}
+
+#mainContent:not(.with-sidebar) {
+  margin-left: 4%;
+}
+
+
+
+/* Fix overlap issue in navbar */
+.navbar .navbar-brand {
+	display: flex;
+	align-items: center;
+}
+
+/* Responsive sidebar and content */
+@media (max-width: 768px) {
+	.sidebar {
+		width: 75%;
+	}
+	.content {
+		margin-left: 0;
+	}
+}
+.menu-toggle {
+  position: relative; 
+  margin-left: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 22px;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background-color: white;
+  border-radius: 3px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.menu-toggle:hover span {
+  background-color: #e2e2e2;
+}
+
+.contact_profile{
+	width: 35px;
+	height: 35px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.card {
+  border-radius: 1rem;
+}
+
+img.rounded-circle {
+  object-fit: cover;
+}
+
+/* Search container */
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto; /* center under "My Contacts" */
+}
+
+/* Search input styling */
+#search-input {
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+#search-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Search results dropdown */
+.search-result {
+  position: absolute;
+  top: 110%; /* just below input */
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+  display: none; /* hidden by default */
+  z-index: 1000;
+  padding: 10px;
+}
+
+/* Each result item */
+.search-result-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s ease-in-out;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background-color: #f8f9fa;
+}
+.search-result {
+  z-index: 2000; /* higher than sidebar/card */
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
